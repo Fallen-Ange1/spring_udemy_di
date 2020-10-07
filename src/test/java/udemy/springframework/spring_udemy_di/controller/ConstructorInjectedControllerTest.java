@@ -2,16 +2,14 @@ package udemy.springframework.spring_udemy_di.controller;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import udemy.springframework.spring_udemy_di.services.GreetingServiceImpl;
-
-import static org.junit.jupiter.api.Assertions.*;
+import udemy.springframework.spring_udemy_di.services.ConstructorGreetingService;
 
 class ConstructorInjectedControllerTest {
     ConstructorInjectedController controller;
 
     @BeforeEach
     void setUp() {
-        controller=new ConstructorInjectedController(new GreetingServiceImpl());
+        controller=new ConstructorInjectedController(new ConstructorGreetingService());
     }
     @Test
     void getGreeting(){
