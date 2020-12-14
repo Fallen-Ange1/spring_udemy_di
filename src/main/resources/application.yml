@@ -3,3 +3,10 @@ guru:
     username: Pasha
     password: pass
     url: url
+
+---
+spring:
+  profiles: de
+guru:
+  jms:
+    username: Pasha@
