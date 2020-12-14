@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import udemy.springframework.spring_udemy_di.exampleBeans.FakeDataSource;
+import udemy.springframework.spring_udemy_di.exampleBeans.FakeJmsBroker;
 
 @Configuration
 public class PropertyConfig {
@@ -14,6 +15,16 @@ public class PropertyConfig {
     @Value("${guru.dburl}")
     String url;
 
+    @Value("${guru.jms.username}")
+    String jmsUsername;
+
+    @Value("${guru.jms.password}")
+    String jmsPassoword;
+
+    @Value("${guru.jms.url}")
+    String jmsUrl;
+
+
     @Bean
     public FakeDataSource fakeDataSource(){
         FakeDataSource fakeDataSource = new FakeDataSource();
@@ -21,5 +32,13 @@ public class PropertyConfig {
         fakeDataSource.setPassword(password);
         fakeDataSource.setUrl(url);
         return fakeDataSource;
+    }
+    @Bean
+    public FakeJmsBroker fakeJmsBroker(){
+        FakeJmsBroker jmsBroker = new FakeJmsBroker();
+        jmsBroker.setUsername(jmsUsername);
+        jmsBroker.setPassword(jmsPassoword);
+        jmsBroker.setUrl(jmsUrl);
+        return jmsBroker;
     }
 }
